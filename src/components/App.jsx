@@ -5,19 +5,21 @@ import MovieDetails from '../pages/MovieDetails/MovieDetails';
 import NotFound from '../pages/NotFound/NotFound';
 import Cast from 'components/Cast/Cast';
 import Reviews from 'components/Reviews/Reviews';
-import {StyledLink} from './App.styled'
+import {Link, Container, Header} from './App.styled'
 
 
 
 export const App = () => {
   return (
+    <Container>
     <div>
+      <Header>
       <nav>
-        <StyledLink to="/">Home</StyledLink>
-        <StyledLink to="/movies">Movies</StyledLink>
-        <StyledLink to="/movies/:movieId">Movie Details</StyledLink>
-
+        <Link to="/">Home</Link>
+        <Link to="/movies">Movies</Link>
+        <Link to="/movies/:movieId">Movie Details</Link>
       </nav>
+      </Header>
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -28,6 +30,8 @@ export const App = () => {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
+    </Container>
+
   );
 };
 
