@@ -1,4 +1,9 @@
+import { useParams } from 'react-router-dom';
+
 const MovieDetails = () => {
-  return <h1>Movie Details</h1>;
+  const { movieId } = useParams();
+  console.log(useParams());
+
+  return <h1>Movie Details {movieId}</h1>;
 };
 export default MovieDetails;

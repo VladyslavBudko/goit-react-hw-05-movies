@@ -36,8 +36,4 @@ export const Header = styled.header`
   }
 `;
 
-// export const Logo = styled.p`
-//   font-weight: 700;
-//   margin: 0;
-// `;
 
