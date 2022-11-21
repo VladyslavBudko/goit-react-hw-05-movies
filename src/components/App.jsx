@@ -1,4 +1,4 @@
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import Home from '../pages/Home/Home';
 import Movies from '../pages/Movies/Movies';
@@ -12,17 +12,18 @@ export const App = () => {
   return (
     <Container>
       <div>
-        <Header>
+        {/* <Header>
           <nav>
             <Link to="/">Home</Link>
             <Link to="/movies">Movies</Link>
-            {/* <Link to="/movies/:movieId">Movie Details</Link> */}
+            <Link to="/movies/:movieId">Movie Details</Link>
           </nav>
-        </Header>
+        </Header> */}
 
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route path="home" element={<Home />}/>
+            <Route index element={<Home />} />
+            <Route path="home" element={<Home />} />
             <Route path="movies" element={<Movies />}>
               <Route path=":movieId" element={<MovieDetails />}>
                 <Route path="cast" element={<Cast />} />
@@ -34,7 +35,6 @@ export const App = () => {
         </Routes>
       </div>
       {/* <Outlet /> */}
-
     </Container>
   );
 };
