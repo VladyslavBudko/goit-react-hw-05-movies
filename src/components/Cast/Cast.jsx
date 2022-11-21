@@ -1,6 +1,6 @@
 
 const Cast = () => {
-    return <div>Cast</div>
+    return <h3>Cast</h3>
 }
 
 export default Cast;

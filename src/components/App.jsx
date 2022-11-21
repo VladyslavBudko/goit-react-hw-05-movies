@@ -6,7 +6,7 @@ import MovieDetails from '../pages/MovieDetails/MovieDetails';
 import NotFound from '../pages/NotFound/NotFound';
 import Cast from 'components/Cast/Cast';
 import Reviews from 'components/Reviews/Reviews';
-import { Link, Container, Header } from './App.styled';
+import { Container } from './App.styled';
 
 export const App = () => {
   return (
@@ -23,12 +23,11 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="home" element={<Home />} />
-            <Route path="movies" element={<Movies />}>
-              <Route path=":movieId" element={<MovieDetails />}>
-                <Route path="cast" element={<Cast />} />
-                <Route path="reviews" element={<Reviews />} />
-              </Route>
+            <Route path="movies" element={<Movies />} />
+            <Route path="movies/:movieId" element={<MovieDetails />}>
+              <Route index element={<h2>No aditional information</h2>} />
+              <Route path="cast" element={<Cast />} />
+              <Route path="reviews" element={<Reviews />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Route>
