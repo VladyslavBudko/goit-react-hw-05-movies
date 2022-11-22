@@ -6,7 +6,7 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   // console.log(useParams());
 
-  const [movieDetails, setMovieDetails] = useState(null);
+  // const [movieDetails, setMovieDetails] = useState(null);
 
   useEffect(() => {
     // axios.get(setMovieDetails)
