@@ -21,7 +21,6 @@ const Home = () => {
           return;
         }
         const movies = await fetchTrandingMovies(page);
-        console.log('movies.results in try Home', movies.results);
         setTrendingMovies(prevState => [...prevState, ...movies.results]);
         setTotal(movies.total);
         setStatus('resolved');

@@ -3,7 +3,6 @@ import { useLocation, NavLink  } from "react-router-dom";
 const MoviesList = ({ moviesArray }) => {
   const location = useLocation();
 
-  console.log(`moviesArray in MoviesList`, moviesArray);
   console.log(`location in MoviesList`- location);
 
   if (!moviesArray) return;

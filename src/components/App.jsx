@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import Home from '../pages/Home/Home';
 import Movies from '../pages/Movies/Movies';
@@ -29,7 +29,7 @@ export const App = () => {
               <Route path="cast" element={<Cast />} />
               <Route path="reviews" element={<Reviews />} />
             </Route>
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<Navigate to="/" replace />}></Route>
           </Route>
         </Routes>
       </div>
