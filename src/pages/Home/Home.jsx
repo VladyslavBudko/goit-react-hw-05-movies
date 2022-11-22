@@ -1,18 +1,19 @@
 import { useState, useEffect } from 'react';
 import fetchTrandingMovies from 'components/Api/Api';
-import MoviesList from 'components/MoviesList/MoviesList'
+import { NavLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const Home = () => {
+  //   const [home, setHome] = useState([]);
   const [trendingMovies, setTrendingMovies] = useState([]);
 
   useEffect(() => {
+    // axios.get(setHome)
     async function getTrandingMovies() {
       try {
         const movies = await fetchTrandingMovies();
-        console.log(movies.results);
+        console.log(movies);
         setTrendingMovies(prevState => [...prevState, ...movies.results]);
-        // console.log(trendingMovies)
-
       } catch (error) {
         console.log(error);
       }
@@ -21,6 +22,19 @@ const Home = () => {
     getTrandingMovies();
   }, []);
 
+  const MoviesList = ({ trendingMovies }) => {
+    const location = useLocation();
+    if (!trendingMovies) return;
+    return (
+      <ul>
+        {trendingMovies.map(movie => (
+          <li key={movie.id}>
+            <NavLink to={`/movies/${movie.id}`} state={{ from: location }} />
+          </li>
+        ))}
+      </ul>
+    );
+  };
 
   return (
     <>
