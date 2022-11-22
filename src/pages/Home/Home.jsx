@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import fetchTrandingMovies from 'components/Api/Api';
-// import { NavLink } from 'react-router-dom';
-// import { useLocation } from 'react-router-dom';
+import MoviesList from 'components/MoviesList/MoviesList';
+import LoadMoreBtn from 'components/LoadMoreBtn/LoadMoreBtn'
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [status, setStatus] = useState('idle');
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
+  const [total, setTotal] = useState(0);
+
 
   useEffect(() => {
     // axios.get(setHome)
@@ -14,9 +16,14 @@ const Home = () => {
       setStatus('pending');
 
       try {
+        if (page === 0) {
+          setPage(1);
+          return;
+        }
         const movies = await fetchTrandingMovies(page);
         console.log('movies.results in try Home', movies.results);
         setTrendingMovies(prevState => [...prevState, ...movies.results]);
+        setTotal(movies.total);
         setStatus('resolved');
       } catch (error) {
         console.log(error);
@@ -27,25 +34,6 @@ const Home = () => {
     getTrandingMovies();
   }, [page]);
 
-  const MoviesList = ({ moviesArray }) => {
-    // const location = useLocation();
-
-    console.log(`moviesArray in MoviesList`, moviesArray);
-    // console.log(`location in MoviesList`- location);
-
-    if (!moviesArray) return;
-    return (
-      <ul>
-        {moviesArray.map(movie => (
-          <li key={movie.id}>
-            {/* <NavLink to={`/movies/${movie.id}`} state={{ from: location }} /> */}
-            <div>{movie.id}</div>
-          </li>
-        ))}
-      </ul>
-    );
-  };
-
   const MovieGallery = () => {
     if (status === 'idle') {
       return <div>Input movie name</div>;
@@ -55,22 +43,9 @@ const Home = () => {
       return <div>Panding</div>;
     }
 
-    if (status === 'resolved') {
-      return (
-        <>
-          <h2>Resolved</h2>
-          <MoviesList moviesArray={trendingMovies} />
-        </>
-      );
-    }
-
     if (status === 'rejected') {
       return <div>Error </div>;
     }
-
-    // if (movies && movies.length === 0) {
-    //   return <div>Movie not found. Please try again!</div>;
-    // }
   };
 
   return (
@@ -78,6 +53,13 @@ const Home = () => {
       <h1>Home</h1>
       <h1>Trending today</h1>
       <MovieGallery />
+      <>
+          <h2>Resolved</h2>
+          <MoviesList moviesArray={trendingMovies} />
+          {trendingMovies.length < total && (
+            <LoadMoreBtn onClick={() => setPage(prevState => prevState + 1)} />
+          )}
+        </>
     </>
   );
 };

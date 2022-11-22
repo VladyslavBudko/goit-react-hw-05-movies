@@ -7,7 +7,6 @@ const trending = 'trending/movie/day';
 const fetchTrandingMovies = async () => {
   const response = await axios.get(`${baseURL}/${trending}?api_key=${MY_KEY}`);
  
-  console.log(response);
   const total = response.data.total_results;
   const results = response.data.results;
   return { total, results };
