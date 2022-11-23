@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 
 export const Link = styled(NavLink)`
   padding: 8px 16px;
@@ -16,4 +17,13 @@ export const Link = styled(NavLink)`
   :focus-visible:not(.active) {
     color: orangered;
   }
+`;
+
+export const Container = styled.div`
+display: flex;
+flex-direction: column;
+margin: 30px;
+`
+export const MovieImg = styled.img`
+  width: 450px;
 `;

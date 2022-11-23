@@ -1,5 +1,8 @@
 import axios from 'axios';
 
+// export const BASE_GENRE_URL = 'https://api.themoviedb.org/3/genre/movie/list';
+export const BASE_POSTER_URL = `https://image.tmdb.org/t/p/w500/`;
+
 const baseURL = 'https://api.themoviedb.org/3';
 const MY_KEY = '0dd125b83baab4c44161e46f210352be';
 const trending = 'trending/movie/day';
