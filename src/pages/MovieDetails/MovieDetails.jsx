@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import { fetchMovieId, BASE_POSTER_URL } from 'components/Api/Api';
 import RequestGallery from 'components/RequestGallery/RequestGallery';
-import { Container, MovieImg } from './MivieDetails.styled';
+import { Container, MovieImg } from './MovieDetails.styled';
 import { setReleaseVote } from 'services/round';
 
 const MovieDetails = () => {

@@ -12,7 +12,7 @@ const Home = () => {
 
   useEffect(() => {
     // axios.get(setHome)
-    async function getTrandingMovies() {
+    async function setTrandingMovies() {
       setStatus('pending');
 
       try {
@@ -30,7 +30,7 @@ const Home = () => {
       }
     }
 
-    getTrandingMovies();
+    setTrandingMovies();
   }, [page]);
 
   return (
@@ -39,7 +39,7 @@ const Home = () => {
       <h1>Trending today</h1>
       <RequestGallery propStatus={status}/>
       <>
-        <h2>Resolved</h2>
+        <h2>Resolved Home</h2>
         <MoviesList moviesArray={trendingMovies} />
         {trendingMovies.length < total && (
           <LoadMoreBtn onClick={() => setPage(prevState => prevState + 1)} />

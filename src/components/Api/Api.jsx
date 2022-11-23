@@ -28,3 +28,16 @@ export const fetchMovieId = async id => {
   return response.data;
 };
 
+export const fetchingByName = async (query, page) => {
+  const response = await axios.get(`${baseURL}/search/movie`, {
+    params: { ...urlParams.params, query, page },
+  });
+
+  if (response.data.total_results === 0) {
+    return Promise.reject(new Error(`Sorry! No images with ${query}`));
+  } else {
+    const total = response.data.total_results;
+    const results = response.data.results;
+    return { total, results };
+  }
+};
