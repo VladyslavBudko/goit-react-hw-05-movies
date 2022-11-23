@@ -6,7 +6,6 @@ import RequestGallery from 'components/RequestGallery/RequestGallery';
 import { Container, MovieImg } from './MivieDetails.styled';
 import { setReleaseVote } from 'services/round';
 
-
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [status, setStatus] = useState('idle');
@@ -43,10 +42,10 @@ const MovieDetails = () => {
     tagline,
     poster_path,
     vote_average = 0,
-    runtime,
     release_date,
-    production_companies,
-    genres,
+    // runtime,
+    // production_companies,
+    // genres,
   } = movieDetails;
 
   let imagePath = ``;
@@ -62,19 +61,25 @@ const MovieDetails = () => {
   return (
     <>
       <RequestGallery propStatus={status} />
-        <h1>Movie Details {movieId}</h1>
-        <h2>Aditional information</h2>
+      <h1>Movie Details {movieId}</h1>
+      <h2>Aditional information</h2>
       <Container>
         <h1>{title || name} </h1>
         <h2>{tagline}</h2>
         <MovieImg src={imagePath} alt={title || name} loading="lazy" />
-        <p>Release date: {release_date}</p>
-        <p>Vote average: {setReleaseVote(vote_average) || `vote not found`}</p> 
+        <p>
+          <b>Release date:</b>
+          {release_date}
+        </p>
+        <p>
+          <b>Vote average:</b>
+          {setReleaseVote(vote_average) || `vote not found`}
+        </p>
 
-
-        <p>Description:</p>
-        <p>{overview || `description not found`}</p>
-
+        <p>
+          <b>Description:</b>
+          {overview || `description not found`}
+        </p>
       </Container>
       <nav>
         <Link to="cast">Cast</Link>
