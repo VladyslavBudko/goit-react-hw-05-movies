@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
-import fetchTrandingMovies from 'components/Api/Api';
+import { fetchTrandingMovies } from 'components/Api/Api';
 import MoviesList from 'components/MoviesList/MoviesList';
-import LoadMoreBtn from 'components/LoadMoreBtn/LoadMoreBtn'
+import LoadMoreBtn from 'components/LoadMoreBtn/LoadMoreBtn';
+import RequestGallery from 'components/RequestGallery/RequestGallery';
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [status, setStatus] = useState('idle');
   const [page, setPage] = useState(0);
   const [total, setTotal] = useState(0);
-
 
   useEffect(() => {
     // axios.get(setHome)
@@ -25,40 +25,26 @@ const Home = () => {
         setTotal(movies.total);
         setStatus('resolved');
       } catch (error) {
-        console.log(error);
         setStatus('rejected');
+        console.log(error);
       }
     }
 
     getTrandingMovies();
   }, [page]);
 
-  const MovieGallery = () => {
-    if (status === 'idle') {
-      return <div>Input movie name</div>;
-    }
-
-    if (status === 'pending') {
-      return <div>Panding</div>;
-    }
-
-    if (status === 'rejected') {
-      return <div>Error </div>;
-    }
-  };
-
   return (
     <>
       <h1>Home</h1>
       <h1>Trending today</h1>
-      <MovieGallery />
+      <RequestGallery propStatus={status}/>
       <>
-          <h2>Resolved</h2>
-          <MoviesList moviesArray={trendingMovies} />
-          {trendingMovies.length < total && (
-            <LoadMoreBtn onClick={() => setPage(prevState => prevState + 1)} />
-          )}
-        </>
+        <h2>Resolved</h2>
+        <MoviesList moviesArray={trendingMovies} />
+        {trendingMovies.length < total && (
+          <LoadMoreBtn onClick={() => setPage(prevState => prevState + 1)} />
+        )}
+      </>
     </>
   );
 };

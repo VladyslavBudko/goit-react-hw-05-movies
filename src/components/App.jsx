@@ -3,7 +3,6 @@ import Layout from './Layout/Layout';
 import Home from '../pages/Home/Home';
 import Movies from '../pages/Movies/Movies';
 import MovieDetails from '../pages/MovieDetails/MovieDetails';
-import NotFound from '../pages/NotFound/NotFound';
 import Cast from 'components/Cast/Cast';
 import Reviews from 'components/Reviews/Reviews';
 import { Container } from './App.styled';
