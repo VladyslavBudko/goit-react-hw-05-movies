@@ -8,7 +8,6 @@ export const Layout = () => {
         <nav>
           <Link to="/">Home</Link>
           <Link to="movies">Movies</Link>
-          {/* <Link to="/movies/:movieId">Movie Details</Link> */}
         </nav>
       </Header>
       <h1>Layout page</h1>

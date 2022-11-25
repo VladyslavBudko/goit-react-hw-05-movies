@@ -11,23 +11,23 @@ export const Input = styled.input`
   color: white;
 `;
 
-export const SearchButton = styled.button`
-  position: absolute;
-  top: 0;
-  right: 10px;
-  transform: translateY(20%);
+// export const SearchButton = styled.button`
+//   position: absolute;
+//   top: 0;
+//   right: 10px;
+//   transform: translateY(20%);
 
-  padding: 0;
-  color: white;
-  background-color: transparent;
+//   padding: 0;
+//   color: white;
+//   background-color: transparent;
 
-  cursor: pointer;
+//   cursor: pointer;
 
-  :hover,
-  :focus {
-    color: red;
-  }
-`;
+//   :hover,
+//   :focus {
+//     color: red;
+//   }
+// `;
 
 export const ErrorMessage = styled.p`
   position: absolute;

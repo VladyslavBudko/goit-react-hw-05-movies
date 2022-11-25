@@ -55,7 +55,7 @@ const Movies = () => {
       <>
         {/* <Box as="section" textAlign="center" px={4} py={5}> */}
         <div>
-          <SearchMovie onSubmit={changeQuery} />
+          <SearchMovie onChange={changeQuery} />
           <>
             <h2>Resolved Movies</h2>
             <MoviesList moviesArray={searchedMovies} />

@@ -1,9 +1,9 @@
-import { Link } from 'components/Layout/Layout.styled';
 import { useState, useEffect } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
-import { fetchMovieId, BASE_POSTER_URL } from 'components/Api/Api';
+
 import RequestGallery from 'components/RequestGallery/RequestGallery';
-import { Container, MovieImg } from './MovieDetails.styled';
+import { fetchMovieId, BASE_POSTER_URL } from 'components/Api/Api';
+import { Container, MovieImg, Link } from './MovieDetails.styled';
 import { setReleaseVote } from 'services/round';
 
 const MovieDetails = () => {
@@ -33,8 +33,6 @@ const MovieDetails = () => {
     getMovieId();
   }, [movieId]);
 
-  console.log(movieDetails);
-
   const {
     title,
     name,
@@ -52,11 +50,6 @@ const MovieDetails = () => {
   !poster_path
     ? (imagePath = '/main')
     : (imagePath = `${BASE_POSTER_URL}/${poster_path}`);
-
-  // let backdropPath = ``;
-  // !backdrop_path
-  //   ? (backdropPath = ``)
-  //   : (backdropPath = `${BASE_POSTER_URL}/${backdrop_path}`);
 
   return (
     <>
