@@ -19,11 +19,25 @@ export const Link = styled(NavLink)`
   }
 `;
 
+export const BackLink = styled(NavLink)`
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  color: white;
+  background-color: orangered;
+
+  :hover,
+  :focus-visible {
+    color: black;
+  }
+`;
+
 export const Container = styled.div`
-display: flex;
-flex-direction: column;
-margin: 30px;
-`
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+`;
 export const MovieImg = styled.img`
   width: 450px;
 `;

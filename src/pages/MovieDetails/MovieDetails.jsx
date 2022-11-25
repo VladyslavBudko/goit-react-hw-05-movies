@@ -3,7 +3,7 @@ import { Outlet, useParams, useLocation } from 'react-router-dom';
 
 import RequestGallery from 'components/RequestGallery/RequestGallery';
 import { fetchMovieId, BASE_POSTER_URL } from 'components/Api/Api';
-import { Container, MovieImg, Link } from './MovieDetails.styled';
+import { Container, MovieImg, Link, BackLink } from './MovieDetails.styled';
 import { setReleaseVote } from 'services/round';
 
 const MovieDetails = () => {
@@ -12,7 +12,7 @@ const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState({});
 
   const location = useLocation();
-  const backLinkHref = location?.state?.from ?? '/movies';
+  const backLinkHref = location.state?.from ?? '/movies';
 
   useEffect(() => {
     if (!movieId) return null;
@@ -56,9 +56,9 @@ const MovieDetails = () => {
 
   return (
     <>
-      <Link to={backLinkHref}>
+      <BackLink to={backLinkHref}>
         <span>Go back</span>
-      </Link>
+      </BackLink>
       <RequestGallery propStatus={status} />
       <h1>Movie Details {movieId}</h1>
       <h2>Aditional information</h2>
