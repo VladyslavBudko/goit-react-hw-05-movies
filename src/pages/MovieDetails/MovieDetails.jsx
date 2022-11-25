@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
+import { Outlet, useParams, useLocation } from 'react-router-dom';
 
 import RequestGallery from 'components/RequestGallery/RequestGallery';
 import { fetchMovieId, BASE_POSTER_URL } from 'components/Api/Api';
@@ -11,8 +11,8 @@ const MovieDetails = () => {
   const [status, setStatus] = useState('idle');
   const [movieDetails, setMovieDetails] = useState({});
 
-  // const location = useLocation();
-  // const backLinkHref = location?.state?.from ?? '/movies'
+  const location = useLocation();
+  const backLinkHref = location?.state?.from ?? '/movies';
 
   useEffect(() => {
     if (!movieId) return null;
@@ -21,6 +21,9 @@ const MovieDetails = () => {
       setStatus('pending');
 
       try {
+        // якщо ID не число, а строка додаємо Number()
+        // const getMovieId = await fetchMovieId(Number(movieId));
+
         const getMovieId = await fetchMovieId(movieId);
         setMovieDetails(getMovieId);
         setStatus('resolved');
@@ -53,6 +56,9 @@ const MovieDetails = () => {
 
   return (
     <>
+      <Link to={backLinkHref}>
+        <span>Go back</span>
+      </Link>
       <RequestGallery propStatus={status} />
       <h1>Movie Details {movieId}</h1>
       <h2>Aditional information</h2>
