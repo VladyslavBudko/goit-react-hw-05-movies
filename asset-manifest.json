@@ -1,13 +1,17 @@
 {
   "files": {
     "main.css": "/VladyslavBudko/goit-react-hw-05-movies/static/css/main.7acaea2f.css",
-    "main.js": "/VladyslavBudko/goit-react-hw-05-movies/static/js/main.5ff164bb.js",
+    "main.js": "/VladyslavBudko/goit-react-hw-05-movies/static/js/main.5eae6ad2.js",
+    "static/js/785.c5c4455d.chunk.js": "/VladyslavBudko/goit-react-hw-05-movies/static/js/785.c5c4455d.chunk.js",
+    "static/js/556.1aa7b83c.chunk.js": "/VladyslavBudko/goit-react-hw-05-movies/static/js/556.1aa7b83c.chunk.js",
     "index.html": "/VladyslavBudko/goit-react-hw-05-movies/index.html",
     "main.7acaea2f.css.map": "/VladyslavBudko/goit-react-hw-05-movies/static/css/main.7acaea2f.css.map",
-    "main.5ff164bb.js.map": "/VladyslavBudko/goit-react-hw-05-movies/static/js/main.5ff164bb.js.map"
+    "main.5eae6ad2.js.map": "/VladyslavBudko/goit-react-hw-05-movies/static/js/main.5eae6ad2.js.map",
+    "785.c5c4455d.chunk.js.map": "/VladyslavBudko/goit-react-hw-05-movies/static/js/785.c5c4455d.chunk.js.map",
+    "556.1aa7b83c.chunk.js.map": "/VladyslavBudko/goit-react-hw-05-movies/static/js/556.1aa7b83c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.5ff164bb.js"
+    "static/js/main.5eae6ad2.js"
   ]
 }
