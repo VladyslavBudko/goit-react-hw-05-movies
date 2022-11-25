@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { Outlet, useParams, useLocation } from 'react-router-dom';
 
 import RequestGallery from 'components/RequestGallery/RequestGallery';
 import { fetchMovieId, BASE_POSTER_URL } from 'components/Api/Api';
 import { Container, MovieImg, Link, BackLink } from './MovieDetails.styled';
 import { setReleaseVote } from 'services/round';
+
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -81,7 +82,9 @@ const MovieDetails = () => {
         <Link to="cast">Cast</Link>
         <Link to="reviews">Reviews</Link>
       </nav>
-      <Outlet />
+      <Suspense fallback={<h2>Loading: Movie details</h2>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

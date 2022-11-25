@@ -53,7 +53,6 @@ const Movies = () => {
       <RequestGallery propStatus={status} />
 
       <>
-        {/* <Box as="section" textAlign="center" px={4} py={5}> */}
         <div>
           <SearchMovie value={query} onChange={changeQuery} />
           <>
@@ -67,7 +66,6 @@ const Movies = () => {
               />
             )}
         </div>
-        {/* </Box> */}
       </>
     </>
   );
