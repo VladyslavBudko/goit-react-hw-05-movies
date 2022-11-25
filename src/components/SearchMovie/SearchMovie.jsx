@@ -4,9 +4,9 @@ import { Form, Input, SearchButton, ErrorMessage } from './SearchMovie.styled';
 
 const SearchMovie = ({ onChange }) => {
   return (
-    <div>
-      <input type="text" onChange={e => onChange(e.target.value)} />
-    </div>
+    <Form>
+      <Input type="text" onChange={e => onChange(e.target.value)} />
+    </Form>
   );
 };
 

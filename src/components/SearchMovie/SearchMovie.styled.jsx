@@ -6,9 +6,10 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-  padding: 20px;
+  padding: 10px;
   min-width: 500px;
-  color: white;
+  font-size: 20px;
+  color: black;
 `;
 
 // export const SearchButton = styled.button`
