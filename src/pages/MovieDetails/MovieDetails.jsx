@@ -44,9 +44,6 @@ const MovieDetails = () => {
     poster_path,
     vote_average = 0,
     release_date,
-    // runtime,
-    // production_companies,
-    // genres,
   } = movieDetails;
 
   let imagePath = ``;

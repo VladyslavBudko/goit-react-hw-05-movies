@@ -1,6 +1,6 @@
 const RequestGallery = ({propStatus}) => {
     if (propStatus === 'idle') {
-      return <div>Input movie name</div>;
+      return <h4>Input movie name</h4>;
     }
 
     if (propStatus === 'pending') {

@@ -57,7 +57,6 @@ const Movies = () => {
         <div>
           <SearchMovie value={query} onChange={changeQuery} />
           <>
-            <h2>Resolved Movies</h2>
             <MoviesList moviesArray={searchedMovies} />
           </>
           {searchedMovies &&

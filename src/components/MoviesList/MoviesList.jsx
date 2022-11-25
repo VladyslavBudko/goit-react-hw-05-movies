@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 const MoviesList = ({ moviesArray }) => {
   const location = useLocation();
-
-  console.log(`location in MoviesList`, location);
+  // console.log(`location in MoviesList`, location);
 
   if (!moviesArray) return;
   return (
