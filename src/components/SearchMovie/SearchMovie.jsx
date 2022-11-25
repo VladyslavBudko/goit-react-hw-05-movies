@@ -1,11 +1,13 @@
 // import { useForm } from 'react-hook-form';
 import PropTypes from 'prop-types';
-import { Form, Input, SearchButton, ErrorMessage } from './SearchMovie.styled';
+import { Form, Input } from './SearchMovie.styled';
 
-const SearchMovie = ({ onChange }) => {
+const SearchMovie = ({ onChange, value }) => {
   return (
     <Form>
-      <Input type="text" onChange={e => onChange(e.target.value)} />
+      <Input type="text" 
+      value={value}
+      onChange={e => onChange(e.target.value)} />
     </Form>
   );
 };

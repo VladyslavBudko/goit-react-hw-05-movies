@@ -10,6 +10,8 @@ export const Input = styled.input`
   min-width: 500px;
   font-size: 20px;
   color: black;
+  // background-color: pink;
+
 `;
 
 // export const SearchButton = styled.button`
