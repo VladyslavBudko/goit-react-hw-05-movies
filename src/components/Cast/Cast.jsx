@@ -36,7 +36,6 @@ const Cast = () => {
 
   return (
     <>
-      <h3>Cast</h3>
       <RequestGallery propStatus={status} />
       <div>
         {cast.map(({ id, name, character, profile_path }) => (

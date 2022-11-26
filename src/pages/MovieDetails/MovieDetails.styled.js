@@ -20,6 +20,10 @@ export const Link = styled(NavLink)`
     color: orangered;
   }
 `;
+export const Box = styled.div`
+display: flex;
+margin: 20px;
+`
 
 export const BackLink = styled(NavLink)`
   padding: 8px 16px;

@@ -3,7 +3,13 @@ import { Outlet, useParams, useLocation } from 'react-router-dom';
 
 import RequestGallery from 'components/RequestGallery/RequestGallery';
 import { fetchMovieId, BASE_POSTER_URL } from 'components/Api/Api';
-import { Container, MovieImg, Link, BackLink } from './MovieDetails.styled';
+import {
+  Box,
+  Container,
+  MovieImg,
+  Link,
+  BackLink,
+} from './MovieDetails.styled';
 import { setReleaseVote } from 'services/round';
 
 const MovieDetails = () => {
@@ -58,27 +64,27 @@ const MovieDetails = () => {
       <BackLink to={backLinkHref}>
         <span>Go back</span>
       </BackLink>
-      <RequestGallery propStatus={status} />
-      <h1>Movie Details {movieId}</h1>
-      <h2>Aditional information</h2>
-      <Container>
-        <h1>{title || name} </h1>
-        <h2>{tagline}</h2>
+      <Box>
+        <RequestGallery propStatus={status} />
         <MovieImg src={imagePath} alt={title || name} loading="lazy" />
-        <p>
-          <b>Release date:</b>
-          {release_date}
-        </p>
-        <p>
-          <b>Vote average:</b>
-          {setReleaseVote(vote_average) || `vote not found`}
-        </p>
+        <Container>
+          <h1>{title || name} </h1>
+          <h2>{tagline}</h2>
+          <h3>
+            <b>Release date:</b>
+            {release_date}
+          </h3>
+          <h3>
+            <b>Vote average:</b>
+            {setReleaseVote(vote_average) || `vote not found`}
+          </h3>
 
-        <p>
-          <b>Description:</b>
-          {overview || `description not found`}
-        </p>
-      </Container>
+          <h3>
+            <b>Description:</b>
+            {overview || `description not found`}
+          </h3>
+        </Container>
+      </Box>
       <nav>
         <Link to="cast">Cast</Link>
         <Link to="reviews">Reviews</Link>

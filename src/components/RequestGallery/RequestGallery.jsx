@@ -1,14 +1,14 @@
 const RequestGallery = ({propStatus}) => {
     if (propStatus === 'idle') {
-      return <h4>Input movie name</h4>;
+      return <h3>Input movie name</h3>;
     }
 
     if (propStatus === 'pending') {
-      return <div>Panding</div>;
+      return <h3>Panding</h3>;
     }
 
     if (propStatus === 'rejected') {
-      return <div>Error </div>;
+      return <h3>Error </h3>;
     }
   };
 

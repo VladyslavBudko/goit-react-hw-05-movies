@@ -40,8 +40,6 @@ const Movies = () => {
   }, [query, page]);
 
   const changeQuery = value => {
-    console.log('value from Movies', value);
-
     setSearchParams(value !== '' ? { query: value } : {});
     setSearchedMovies([]);
     setPage(1);
@@ -50,25 +48,19 @@ const Movies = () => {
 
   return (
     <>
-      <h1>Movies</h1>
-      <h1>Search Movie</h1>
-      <RequestGallery propStatus={status} />
+      <h1>Search Movies</h1>
 
-      <>
-        <div>
-          <SearchMovie value={query} onChange={changeQuery} />
-          <>
-            <MoviesList moviesArray={searchedMovies} />
-          </>
-          {searchedMovies &&
-            status === 'resolved' &&
-            searchedMovies.length < total && (
-              <LoadMoreBtn
-                onClick={() => setPage(prevState => prevState + 1)}
-              />
-            )}
-        </div>
-      </>
+      <div>
+        <SearchMovie value={query} onChange={changeQuery} />
+        
+        <RequestGallery propStatus={status} />
+        <MoviesList moviesArray={searchedMovies} />
+        {searchedMovies &&
+          status === 'resolved' &&
+          searchedMovies.length < total && (
+            <LoadMoreBtn onClick={() => setPage(prevState => prevState + 1)} />
+          )}
+      </div>
     </>
   );
 };
