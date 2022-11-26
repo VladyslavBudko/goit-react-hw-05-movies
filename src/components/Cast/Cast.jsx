@@ -24,8 +24,12 @@ const Cast = () => {
     async function setMovieCast() {
       setStatus('pending');
       try {
+        console.log('movieId - ', movieId);
+
         const castById = await fetchingCast(movieId);
         setCast(castById);
+        console.log('castById - ', castById);
+
         setStatus('resolved');
       } catch (error) {
         setStatus('rejected');
@@ -43,15 +47,14 @@ const Cast = () => {
       <RequestGallery propStatus={status} />
 
       <div>
-        {cast.map(({ name, character, profile_path }) => (
-          <li>
+        {cast.map(({id, name, character, profile_path }) => (
+          <li key={id}>
             <Container>
               <ActorImg
                 src={profile_path ? BASE_POSTER_URL + profile_path : 'No Photo'}
                 alt={name}
                 loading="lazy"
               />
-
               <ActorBox>
                 <ActorName>{name}</ActorName>
                 <Character>{character}</Character>
@@ -60,6 +63,8 @@ const Cast = () => {
           </li>
         ))}
       </div>
+
+      <h3>End Cast</h3>
     </>
   );
 };

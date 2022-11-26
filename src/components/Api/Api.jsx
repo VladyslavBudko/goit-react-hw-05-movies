@@ -42,7 +42,7 @@ export const fetchingByName = async (query, page) => {
 };
 
 export const fetchingCast = async id => {
-  const response = await axios.get(`movie/${id}/credits`, urlParams);
+  const response = await axios.get(`${baseURL}/movie/${id}/credits`, urlParams);
 
   if (response.data.cast.length === 0) {
     return Promise.reject(new Error(`Sorry! No cast was found.`));
@@ -52,7 +52,7 @@ export const fetchingCast = async id => {
 };
 
 export const fetchingReviews = async id => {
-  const response = await axios.get(`movie/${id}/reviews`, urlParams);
+  const response = await axios.get(`${baseURL}/movie/${id}/reviews`, urlParams);
 
   if (response.data.total_results === 0) {
     return Promise.reject(new Error(`Sorry! No reviews was found.`));
