@@ -16,7 +16,7 @@ export const fetchTrandingMovies = async page => {
   const response = await axios.get(`${baseURL}/${trending}`, {
     params: { ...urlParams.params, page },
   });
- 
+
   const total = response.data.total_results;
   const results = response.data.results;
   return { total, results };

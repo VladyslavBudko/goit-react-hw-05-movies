@@ -27,8 +27,8 @@ const Cast = () => {
         setCast(castById);
         setStatus('resolved');
       } catch (error) {
+        console.log('Sorry! No cast was found');
         setStatus('rejected');
-        console.log(error);
       }
     }
     setMovieCast();

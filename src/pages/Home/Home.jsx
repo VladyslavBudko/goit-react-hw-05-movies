@@ -35,9 +35,8 @@ const Home = () => {
 
   return (
     <>
-      <h1>Home</h1>
       <h1>Trending today</h1>
-      <RequestGallery propStatus={status}/>
+      <RequestGallery propStatus={status} />
       <>
         <MoviesList moviesArray={trendingMovies} />
         {trendingMovies.length < total && (

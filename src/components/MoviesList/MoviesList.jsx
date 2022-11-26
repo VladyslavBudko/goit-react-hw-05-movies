@@ -1,21 +1,33 @@
 import { useLocation, NavLink } from 'react-router-dom';
+import { BASE_POSTER_URL } from 'components/Api/Api';
+import { List, Container } from './MoviesList.styled';
+
 import PropTypes from 'prop-types';
 
 const MoviesList = ({ moviesArray }) => {
   const location = useLocation();
   // console.log(`location in MoviesList`, location);
+  // console.log(moviesArray);
 
   if (!moviesArray) return;
+
   return (
-    <ul>
-      {moviesArray.map(movie => (
-        <li key={movie.id}>
-          <NavLink to={`/movies/${movie.id}`} state={{ from: location }}>
-            {movie.title}
+    <List>
+      {moviesArray.map(({ id, poster_path, title }) => (
+        <Container key={id}>
+          <NavLink to={`/movies/${id}`} state={{ from: location }}>
+            <img
+              width="200px"
+              height="300px"
+              src={poster_path ? BASE_POSTER_URL + poster_path : ''}
+              alt={title}
+              loading="lazy"
+            />
+            <div>{title}</div>
           </NavLink>
-        </li>
+        </Container>
       ))}
-    </ul>
+    </List>
   );
 };
 

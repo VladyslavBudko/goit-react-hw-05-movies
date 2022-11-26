@@ -49,10 +49,9 @@ const Movies = () => {
   return (
     <>
       <h1>Search Movies</h1>
-
       <div>
         <SearchMovie value={query} onChange={changeQuery} />
-        
+
         <RequestGallery propStatus={status} />
         <MoviesList moviesArray={searchedMovies} />
         {searchedMovies &&

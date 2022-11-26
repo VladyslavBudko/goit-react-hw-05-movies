@@ -21,8 +21,8 @@ const Reviews = () => {
         setReviews(reviewsById);
         setStatus('resolved');
       } catch (error) {
+        console.log(error.title);
         setStatus('rejected');
-        console.log(error);
       }
     }
     setMovieReviews();
