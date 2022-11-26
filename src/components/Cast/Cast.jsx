@@ -1,6 +1,67 @@
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+
+import RequestGallery from 'components/RequestGallery/RequestGallery';
+// import { FALLBACK_CAST_IMAGE_PATH } from 'constants/urls';
+import { fetchingCast, BASE_POSTER_URL } from 'components/Api/Api';
+
+import {
+  Container,
+  ActorName,
+  ActorImg,
+  Character,
+  ActorBox,
+} from './Cast.styled';
 
 const Cast = () => {
-    return <h3>Cast</h3>
-}
+  const [status, setStatus] = useState('idle');
+  const { movieId } = useParams();
+  const [cast, setCast] = useState([]);
+
+  useEffect(() => {
+    if (!movieId) return;
+
+    async function setMovieCast() {
+      setStatus('pending');
+      try {
+        const castById = await fetchingCast(movieId);
+        setCast(castById);
+        setStatus('resolved');
+      } catch (error) {
+        setStatus('rejected');
+        console.log(error);
+      }
+    }
+    setMovieCast();
+  }, [movieId]);
+
+  console.log('Cast - ', cast);
+
+  return (
+    <>
+      <h3>Cast</h3>
+      <RequestGallery propStatus={status} />
+
+      <div>
+        {cast.map(({ name, character, profile_path }) => (
+          <li>
+            <Container>
+              <ActorImg
+                src={profile_path ? BASE_POSTER_URL + profile_path : 'No Photo'}
+                alt={name}
+                loading="lazy"
+              />
+
+              <ActorBox>
+                <ActorName>{name}</ActorName>
+                <Character>{character}</Character>
+              </ActorBox>
+            </Container>
+          </li>
+        ))}
+      </div>
+    </>
+  );
+};
 
 export default Cast;

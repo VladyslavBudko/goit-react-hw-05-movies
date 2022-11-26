@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// export const BASE_GENRE_URL = 'https://api.themoviedb.org/3/genre/movie/list';
 export const BASE_POSTER_URL = `https://image.tmdb.org/t/p/w500/`;
 
 const baseURL = 'https://api.themoviedb.org/3';
@@ -34,10 +33,30 @@ export const fetchingByName = async (query, page) => {
   });
 
   if (response.data.total_results === 0) {
-    return Promise.reject(new Error(`Sorry! No images with ${query}`));
+    return Promise.reject(new Error(`Sorry! No Movies with ${query}`));
   } else {
     const total = response.data.total_results;
     const results = response.data.results;
     return { total, results };
+  }
+};
+
+export const fetchingCast = async id => {
+  const response = await axios.get(`movie/${id}/credits`, urlParams);
+
+  if (response.data.cast.length === 0) {
+    return Promise.reject(new Error(`Sorry! No cast was found.`));
+  } else {
+    return response.data.cast;
+  }
+};
+
+export const fetchingReviews = async id => {
+  const response = await axios.get(`movie/${id}/reviews`, urlParams);
+
+  if (response.data.total_results === 0) {
+    return Promise.reject(new Error(`Sorry! No reviews was found.`));
+  } else {
+    return response.data.results;
   }
 };

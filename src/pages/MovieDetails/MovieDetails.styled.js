@@ -40,6 +40,7 @@ export const Container = styled.div`
   flex-direction: column;
   margin: 30px;
 `;
+
 export const MovieImg = styled.img`
   width: 450px;
 `;

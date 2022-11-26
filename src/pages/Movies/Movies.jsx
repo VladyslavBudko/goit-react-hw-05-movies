@@ -40,6 +40,8 @@ const Movies = () => {
   }, [query, page]);
 
   const changeQuery = value => {
+    console.log('value from Movies', value);
+
     setSearchParams(value !== '' ? { query: value } : {});
     setSearchedMovies([]);
     setPage(1);

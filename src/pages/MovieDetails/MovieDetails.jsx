@@ -6,7 +6,6 @@ import { fetchMovieId, BASE_POSTER_URL } from 'components/Api/Api';
 import { Container, MovieImg, Link, BackLink } from './MovieDetails.styled';
 import { setReleaseVote } from 'services/round';
 
-
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [status, setStatus] = useState('idle');
@@ -36,6 +35,8 @@ const MovieDetails = () => {
 
     getMovieId();
   }, [movieId]);
+
+  // console.log(movieDetails);
 
   const {
     title,
